@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "networkInterfaceName": {
+            "value": "rhelpacker449"
+        },
+        "networkSecurityGroupName": {
+            "value": "rhelpacker-nsg"
+        },
+        "networkSecurityGroupRules": {
+            "value": [
+                {
+                    "name": "SSH",
+                    "properties": {
+                        "priority": 300,
+                        "protocol": "TCP",
+                        "access": "Allow",
+                        "direction": "Inbound",
+                        "sourceAddressPrefix": "*",
+                        "sourcePortRange": "*",
+                        "destinationAddressPrefix": "*",
+                        "destinationPortRange": "22"
+                    }
+                }
+            ]
+        },
+        "subnetName": {
+            "value": "DtlDevAutomateWithAzureLabSubnet"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/31e7b212-1dba-4067-984b-000a08cab022/resourceGroups/Dev/providers/Microsoft.Network/virtualNetworks/DtlDevAutomateWithAzureLab"
+        },
+        "publicIpAddressName": {
+            "value": "rhelpacker-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "virtualMachineName": {
+            "value": "rhelpacker"
+        },
+        "virtualMachineComputerName": {
+            "value": "rhelpacker"
+        },
+        "virtualMachineRG": {
+            "value": "Dev"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_B2s"
+        },
+        "adminUsername": {
+            "value": "azureuser"
+        }
+    }
+}
