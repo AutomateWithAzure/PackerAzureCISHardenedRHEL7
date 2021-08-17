@@ -22,9 +22,9 @@
   "provisioners": [{
     "execute_command": "chmod +x {{ .Path }}; {{ .Vars }} sudo -E sh '{{ .Path }}'",
     "inline": [
-      "sudo yum install -y openscap-scanner",
-      "sudo yum install -y scap-secrity-guide",
-      "oscap xccdf eval --remediate --profile xccdf_org.ssgproject.content_profile_cis --fetch-remote-resources --results-arf results.xml --report ssg-rhel7-report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml",
+      sudo yum install -y openscap-scanner
+      sudo yum install -y scap-security-guide
+      sudo oscap xccdf eval --remediate --fetch-remote-resources --profile xccdf_org.ssgproject.content_profile_cis --results-arf ~/results.xml --report ~/ssg-rhel7-report.html /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
 
       "/usr/sbin/waagent -force -deprovision+user && export HISTSIZE=0 && sync"
     ],
